@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Thumb icon -->
+  <g fill="#5DADE2">
+    <ellipse cx="16" cy="10" rx="6" ry="9"/>
+    <rect x="10" y="16" width="12" height="12" rx="3"/>
+  </g>
+</svg>

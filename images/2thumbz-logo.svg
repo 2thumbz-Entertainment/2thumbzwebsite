@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+  <!-- Left Thumb -->
+  <g fill="#5DADE2">
+    <ellipse cx="18" cy="20" rx="8" ry="12" transform="rotate(-15 18 20)"/>
+    <rect x="10" y="28" width="16" height="20" rx="4"/>
+    <circle cx="8" cy="38" r="5"/>
+    <circle cx="6" cy="45" r="4"/>
+    <circle cx="8" cy="51" r="3"/>
+  </g>
+
+  <!-- Number 2 -->
+  <text x="38" y="45" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#1A1A1A">2</text>
+
+  <!-- Right Thumb -->
+  <g fill="#5DADE2" transform="translate(60, 0)">
+    <ellipse cx="18" cy="20" rx="8" ry="12" transform="rotate(15 18 20)"/>
+    <rect x="10" y="28" width="16" height="20" rx="4"/>
+    <circle cx="28" cy="38" r="5"/>
+    <circle cx="30" cy="45" r="4"/>
+    <circle cx="28" cy="51" r="3"/>
+  </g>
+
+  <!-- THUMBZ Text -->
+  <text x="95" y="45" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#1A1A1A">THUMBZ</text>
+</svg>

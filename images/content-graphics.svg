@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" width="300" height="200">
+  <rect width="300" height="200" fill="#F8F9FA"/>
+
+  <!-- Monitor/screen -->
+  <rect x="60" y="30" width="180" height="120" rx="8" fill="#2E86AB" stroke="#5DADE2" stroke-width="2"/>
+  <rect x="70" y="40" width="160" height="95" fill="white"/>
+
+  <!-- Graphics on screen -->
+  <rect x="80" y="50" width="50" height="35" fill="#5DADE2" opacity="0.5"/>
+  <rect x="135" y="50" width="85" height="15" fill="#E0E0E0"/>
+  <rect x="135" y="70" width="60" height="10" fill="#E0E0E0"/>
+  <rect x="80" y="95" width="130" height="30" rx="4" fill="#5DADE2"/>
+  <text x="145" y="115" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white" text-anchor="middle">DOWNLOAD</text>
+
+  <!-- Stand -->
+  <rect x="130" y="150" width="40" height="10" fill="#2E86AB"/>
+  <rect x="110" y="160" width="80" height="8" rx="2" fill="#1B4F72"/>
+
+  <text x="150" y="185" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1A1A1A" text-anchor="middle">GRAPHICS & LOGOS</text>
+</svg>

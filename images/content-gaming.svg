@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" width="300" height="200">
+  <rect width="300" height="200" fill="#F8F9FA"/>
+
+  <!-- Game controller -->
+  <ellipse cx="150" cy="100" rx="80" ry="50" fill="#2E86AB" stroke="#5DADE2" stroke-width="2"/>
+
+  <!-- D-pad -->
+  <rect x="95" y="85" width="10" height="30" fill="#1A1A1A"/>
+  <rect x="85" y="95" width="30" height="10" fill="#1A1A1A"/>
+
+  <!-- Buttons -->
+  <circle cx="185" cy="90" r="8" fill="#5DADE2"/>
+  <circle cx="205" cy="100" r="8" fill="#3498DB"/>
+  <circle cx="185" cy="110" r="8" fill="#5DADE2"/>
+  <circle cx="165" cy="100" r="8" fill="#3498DB"/>
+
+  <!-- Joysticks -->
+  <circle cx="120" cy="115" r="12" fill="#1A1A1A"/>
+  <circle cx="180" cy="115" r="12" fill="#1A1A1A"/>
+
+  <!-- College badge -->
+  <circle cx="150" cy="80" r="15" fill="white" stroke="#5DADE2" stroke-width="2"/>
+  <text x="150" y="84" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#1A1A1A" text-anchor="middle">NCAA</text>
+
+  <text x="150" y="175" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1A1A1A" text-anchor="middle">GAMING ASSETS</text>
+</svg>

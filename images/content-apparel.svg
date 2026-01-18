@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" width="300" height="200">
+  <rect width="300" height="200" fill="#F8F9FA"/>
+
+  <!-- T-shirt shape -->
+  <path d="M100 60 L80 80 L80 100 L100 90 L100 160 L200 160 L200 90 L220 100 L220 80 L200 60 L175 70 Q150 85 125 70 L100 60 Z"
+        fill="#5DADE2" stroke="#2E86AB" stroke-width="2"/>
+
+  <!-- College logo placeholder -->
+  <circle cx="150" cy="115" r="25" fill="white" stroke="#2E86AB" stroke-width="2"/>
+  <text x="150" y="120" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#1A1A1A" text-anchor="middle">LOGO</text>
+
+  <!-- Digital particles -->
+  <rect x="50" y="40" width="10" height="10" fill="#3498DB" opacity="0.5" transform="rotate(15 55 45)"/>
+  <rect x="240" y="50" width="12" height="12" fill="#5DADE2" opacity="0.5" transform="rotate(-10 246 56)"/>
+  <circle cx="60" cy="150" r="8" fill="#2E86AB" opacity="0.4"/>
+  <circle cx="250" cy="140" r="10" fill="#5DADE2" opacity="0.4"/>
+
+  <text x="150" y="185" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1A1A1A" text-anchor="middle">DIGITAL APPAREL</text>
+</svg>

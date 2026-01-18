@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" width="300" height="200">
+  <rect width="300" height="200" fill="#F8F9FA"/>
+
+  <!-- Sticker 1 - Star -->
+  <polygon points="80,50 90,80 120,80 95,100 105,130 80,110 55,130 65,100 40,80 70,80"
+           fill="#5DADE2" stroke="#2E86AB" stroke-width="2"/>
+
+  <!-- Sticker 2 - Circle badge -->
+  <circle cx="180" cy="70" r="35" fill="#3498DB" stroke="#2E86AB" stroke-width="2"/>
+  <text x="180" y="65" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white" text-anchor="middle">GO</text>
+  <text x="180" y="78" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white" text-anchor="middle">TEAM!</text>
+
+  <!-- Sticker 3 - Emoji face -->
+  <circle cx="100" cy="140" r="30" fill="#FFD700" stroke="#2E86AB" stroke-width="2"/>
+  <circle cx="90" cy="135" r="5" fill="#1A1A1A"/>
+  <circle cx="110" cy="135" r="5" fill="#1A1A1A"/>
+  <path d="M85 150 Q100 165 115 150" fill="none" stroke="#1A1A1A" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Sticker 4 - Mascot placeholder -->
+  <rect x="160" y="115" width="60" height="60" rx="10" fill="#5DADE2" stroke="#2E86AB" stroke-width="2"/>
+  <text x="190" y="145" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="white" text-anchor="middle">MASCOT</text>
+  <text x="190" y="158" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">STICKER</text>
+
+  <!-- Decorative elements -->
+  <circle cx="250" cy="50" r="15" fill="#5DADE2" opacity="0.3"/>
+  <rect x="40" cy="160" width="20" height="20" rx="3" fill="#3498DB" opacity="0.3" transform="rotate(20 50 170)"/>
+</svg>
