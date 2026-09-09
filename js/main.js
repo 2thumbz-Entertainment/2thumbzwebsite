@@ -123,10 +123,10 @@ function initSmoothScroll() {
  * Form validation
  */
 function initFormValidation() {
-  const forms = document.querySelectorAll('form');
+  const forms = document.querySelectorAll('form.contact-form');
 
   forms.forEach(form => {
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', async function(e) {
       e.preventDefault();
 
       // Basic validation
@@ -152,9 +152,53 @@ function initFormValidation() {
         }
       }
 
-      if (isValid) {
-        // Show success message (in production, this would submit to a server)
-        showFormSuccess(form);
+      if (!isValid) return;
+
+      // Collect the form, including multi-value checkboxes
+      const fd = new FormData(form);
+      const payload = {};
+      fd.forEach((value, key) => {
+        if (payload[key] === undefined) {
+          payload[key] = value;
+        } else if (Array.isArray(payload[key])) {
+          payload[key].push(value);
+        } else {
+          payload[key] = [payload[key], value];
+        }
+      });
+
+      const submitBtn = form.querySelector('[type="submit"]');
+      const originalLabel = submitBtn ? submitBtn.textContent : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending…';
+      }
+      clearFormError(form);
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        let data = {};
+        try { data = await res.json(); } catch (_) {}
+
+        if (res.ok && data.ok) {
+          // Only claim success when the server actually accepted it
+          showFormSuccess(form);
+          return;
+        }
+
+        showFormError(form, data.error || 'Something went wrong. Please email licensing@2thumbz.com directly.');
+      } catch (err) {
+        showFormError(form, 'We could not reach the server. Please email licensing@2thumbz.com directly.');
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalLabel;
+        }
       }
     });
 
@@ -165,6 +209,29 @@ function initFormValidation() {
       });
     });
   });
+}
+
+/**
+ * Show an inline error above the submit button. Used whenever delivery failed,
+ * so the visitor knows to reach us another way instead of assuming we got it.
+ */
+function showFormError(form, msg) {
+  clearFormError(form);
+  const box = document.createElement('div');
+  box.className = 'form-error-box';
+  box.setAttribute('role', 'alert');
+  box.textContent = msg;
+  const submitBtn = form.querySelector('[type="submit"]');
+  if (submitBtn && submitBtn.parentNode) {
+    submitBtn.parentNode.insertBefore(box, submitBtn);
+  } else {
+    form.appendChild(box);
+  }
+}
+
+function clearFormError(form) {
+  const existing = form.querySelector('.form-error-box');
+  if (existing) existing.remove();
 }
 
 /**
