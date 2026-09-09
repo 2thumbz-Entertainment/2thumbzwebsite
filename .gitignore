@@ -18,3 +18,10 @@ build/
 # Environment files
 .env
 .env.local
+
+# Separate project that happens to live in this folder — it has its own
+# git repo, so it must not be committed into the website repo
+MailchimpSync/
+
+# Local tooling (dev-server config used to preview this site)
+.claude/

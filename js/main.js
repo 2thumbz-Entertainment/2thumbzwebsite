@@ -312,3 +312,111 @@ function initFilters() {
 if (document.querySelector('.catalog-layout')) {
   initFilters();
 }
+
+/* ============================================
+   Hero: Content Solutions Showcase (auto-rotate)
+   ============================================ */
+function initShowcase() {
+  const stage = document.getElementById('showcaseStage');
+  const dotsWrap = document.getElementById('showcaseDots');
+  if (!stage) return;
+
+  const cards = Array.from(stage.querySelectorAll('.showcase-card'));
+  if (cards.length === 0) return;
+
+  let current = 0;
+  let timer = null;
+  const INTERVAL = 4000;
+
+  // Build navigation dots
+  cards.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.setAttribute('aria-label', 'Show example ' + (i + 1));
+    if (i === 0) dot.classList.add('is-active');
+    dot.addEventListener('click', () => { show(i); restart(); });
+    dotsWrap && dotsWrap.appendChild(dot);
+  });
+  const dots = dotsWrap ? Array.from(dotsWrap.children) : [];
+
+  function show(index) {
+    current = (index + cards.length) % cards.length;
+    cards.forEach((c, i) => c.classList.toggle('is-active', i === current));
+    dots.forEach((d, i) => d.classList.toggle('is-active', i === current));
+  }
+
+  function next() { show(current + 1); }
+
+  function start() { timer = setInterval(next, INTERVAL); }
+  function restart() { if (timer) clearInterval(timer); start(); }
+
+  start();
+
+  // Pause on hover
+  const window_ = stage.closest('.showcase-window');
+  if (window_) {
+    window_.addEventListener('mouseenter', () => timer && clearInterval(timer));
+    window_.addEventListener('mouseleave', restart);
+  }
+}
+initShowcase();
+
+/* ============================================
+   Hero: Collegiate Logo Stream (seamless loop)
+   Duplicate the track contents so the marquee
+   can scroll -50% without a visible gap.
+   ============================================ */
+function initLogoStream() {
+  const track = document.getElementById('logoStream');
+  if (!track) return;
+  const chips = Array.from(track.children);
+  chips.forEach(chip => track.appendChild(chip.cloneNode(true)));
+}
+initLogoStream();
+
+/* ============================================
+   Phone number — assembled at runtime
+   The digits are never in the page source, so
+   scrapers harvesting tel: links / number
+   patterns come up empty. Humans see a normal,
+   tappable number.
+   ============================================ */
+function initPhone() {
+  document.querySelectorAll('.contact-phone').forEach(function (el) {
+    var payload = el.getAttribute('data-c');
+    if (!payload) return;
+
+    var digits;
+    try { digits = atob(payload).replace(/\D/g, ''); } catch (e) { return; }
+    if (digits.length < 10) return;
+
+    // drop a leading country code for display purposes
+    var local = (digits.length === 11 && digits.charAt(0) === '1') ? digits.slice(1) : digits;
+    var pretty = '(' + local.slice(0, 3) + ') ' + local.slice(3, 6) + '-' + local.slice(6);
+
+    var link = document.createElement('a');
+    link.className = 'phone-link';
+    link.href = 'tel:+1' + local;
+    link.textContent = pretty;
+
+    el.textContent = '';
+    el.appendChild(link);
+    el.removeAttribute('data-c');
+  });
+}
+initPhone();
+
+/* ============================================
+   Preselect contact dropdown from ?interest=
+   (License/Distribute/Build CTAs deep-link here)
+   ============================================ */
+function initInterestPreselect() {
+  const params = new URLSearchParams(window.location.search);
+  const interest = params.get('interest');
+  if (!interest) return;
+  const select = document.getElementById('type');
+  if (!select) return;
+  const match = Array.from(select.options).some(o => o.value === interest);
+  if (match) select.value = interest;
+}
+initInterestPreselect();
