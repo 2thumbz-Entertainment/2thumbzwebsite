@@ -766,6 +766,48 @@ p {
 .product-thumb--apparel { background: linear-gradient(135deg, #5DADE2 0%, #2E86AB 100%); }
 .product-thumb--songs   { background: linear-gradient(135deg, #F39C12 0%, #B9770E 100%); }
 
+/* Stats bar on a light section (universities page) */
+.stats-bar--light {
+  background: var(--white);
+  border: 1px solid var(--lighter-gray);
+  margin-top: var(--space-3xl);
+}
+
+.stats-bar--light .stat-number { color: var(--dark-blue); }
+.stats-bar--light .stat-label  { color: var(--medium-gray); }
+
+/* Licensing agency marks — text stand-ins until the real logos are supplied */
+.partner-marks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2xl);
+  margin-top: var(--space-lg);
+}
+
+.partner-mark {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 0.5px;
+  color: var(--dark-blue);
+  background: var(--white);
+  border: 1px solid var(--lighter-gray);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg) var(--space-2xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.partner-marks img {
+  height: 54px;
+  width: auto;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md) var(--space-lg);
+  box-shadow: var(--shadow-sm);
+}
+
 /* Honeypot — visually and programmatically hidden, but still submitted.
    Not display:none, since some bots skip those. */
 .hp-field {
