@@ -121,6 +121,14 @@ export default async function handler(req, res) {
   const to = process.env.CONTACT_TO || 'licensing@2thumbz.com';
   const from = process.env.CONTACT_FROM || '2ThumbZ Website <onboarding@resend.dev>';
 
+  // Diagnostic: shows in Vercel logs whether the env var actually reached the
+  // function. The from/to addresses are not secrets, so they are safe to log.
+  console.log(
+    '[contact] CONTACT_FROM set:', Boolean(process.env.CONTACT_FROM),
+    '| sending from:', from,
+    '| to:', to
+  );
+
   const interestLine = interests.length
     ? interests.map((i) => INTEREST_LABELS[i] || i).join(', ')
     : '—';
