@@ -8,14 +8,17 @@
 
 ## P0 — Broken, and costing you leads right now
 
-### 1. The contact form doesn't submit anywhere
-`index.html:743` and `pages/contact.html:89` both use `<form action="#">`.
-A prospect fills it in, hits **Start Partnership Discussion**, and the data goes
-**nowhere** — no email, no storage, no notification. This is the primary
-conversion path on a B2B site, and it is silently dropping every inbound lead.
+### 1. ~~The contact form doesn't submit anywhere~~ ✅ DONE 2026-09-09
+Both forms previously used `action="#"` with JS that displayed a fake "Thank
+You" without sending anything. Now: `api/contact.js` (Vercel function) →
+Resend → `licensing@2thumbz.com`, with `reply_to` set to the prospect.
+Protected by a honeypot plus Cloudflare Turnstile **verified server-side**.
+Success is only ever shown when the server confirms delivery.
 
-Options: a form service (Formspree / Basin), a Vercel serverless function
-posting to email, or wire it to HubSpot (already in the stack).
+Env vars in Vercel: `RESEND_API_KEY`, `TURNSTILE_SECRET_KEY`,
+`CONTACT_FROM=2ThumbZ Website <website@send.2thumbz.com>`.
+Sender domain `send.2thumbz.com` is verified in Resend (DKIM/SPF/MX on the
+subdomain only — root Google Workspace mail untouched).
 
 ### 2. `pages/universities.html` is a 0-byte file
 Linked from the main nav **and** the footer on every page. Anyone clicking
