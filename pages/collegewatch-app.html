@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CollegeWatch for Apple Watch: officially licensed watch faces and 25 live complications — score, kickoff countdown, record, rally cry — for 27 schools. Free to start.">
+  <title>CollegeWatch — Your school on your Apple Watch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css?v=20260910134808">
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+  <meta property="og:title" content="CollegeWatch — Your school on your Apple Watch">
+  <meta property="og:description" content="Officially licensed faces and 25 live complications for 27 schools. Free to start.">
+  <meta property="og:image" content="https://www.2thumbz.com/images/collegewatch/modular_before_after.png">
+  <style>
+    /* CollegeWatch landing — fan-facing; scoped cw- classes on top of the site's tokens */
+    :root { --cw-blue:#006DC3; --cw-navy:#0B1E42; --cw-ink:#141926; }
+    .cw-hero { position:relative; overflow:hidden; color:#fff; background:radial-gradient(120% 90% at 20% 0%, #1656a8 0%, var(--cw-navy) 55%, #071433 100%); padding: calc(80px + var(--space-2xl)) 0 var(--space-3xl); }
+    .cw-hero .container { position:relative; z-index:1; display:grid; grid-template-columns: 1.05fr 1fr; gap: var(--space-2xl); align-items:center; }
+    .cw-hero .hero-eyebrow { color:#8fc6ff; }
+    .cw-hero h1 { color:#fff; font-family:var(--font-heading); font-size:clamp(2.4rem,4.6vw,3.9rem); line-height:1.05; letter-spacing:-.02em; margin:0 0 var(--space-md); }
+    .cw-hero p.lead { font-size:1.2rem; color:rgba(255,255,255,.82); max-width:34rem; margin:0 0 var(--space-xl); }
+    .cw-store { display:inline-flex; align-items:center; gap:.7rem; background:#000; color:#fff; border:1.5px solid rgba(255,255,255,.35); border-radius:12px; padding:.7rem 1.25rem .7rem 1rem; text-decoration:none; font-family:var(--font-primary); line-height:1.05; transition:transform .15s ease, background .15s ease; }
+    .cw-store:hover { transform:translateY(-2px); background:#111; color:#fff; }
+    .cw-store svg { width:30px; height:30px; flex:none; }
+    .cw-store small { display:block; font-size:.7rem; letter-spacing:.02em; opacity:.85; }
+    .cw-store b { display:block; font-size:1.35rem; font-weight:600; }
+    .cw-hero-note { margin-top:var(--space-md); font-size:.9rem; color:rgba(255,255,255,.65); }
+    .cw-watches { display:flex; justify-content:center; align-items:flex-end; gap:0; }
+    .cw-watches img { width:38%; max-width:250px; border-radius:22%/18%; box-shadow:0 30px 60px rgba(0,0,0,.55), 0 0 0 10px #1b1b1f, 0 0 0 12px #3a3a40; background:#000; }
+    .cw-watches img:nth-child(1){ transform:translateX(12%) rotate(-6deg); z-index:1 }
+    .cw-watches img:nth-child(2){ transform:translateY(-22px) scale(1.12); z-index:3 }
+    .cw-watches img:nth-child(3){ transform:translateX(-12%) rotate(6deg); z-index:2 }
+    .cw-section { padding: var(--space-3xl) 0; }
+    .cw-alt { background: var(--light-gray); }
+    .cw-split { display:grid; grid-template-columns: 1fr 1fr; gap: var(--space-2xl); align-items:center; }
+    .cw-split.flip > :first-child { order:2; }
+    .cw-phone { width:min(320px,80%); margin:0 auto; display:block; border-radius:38px; box-shadow:0 24px 60px rgba(20,25,38,.28); }
+    .cw-list { list-style:none; padding:0; margin:var(--space-lg) 0 0; display:grid; gap:.6rem; }
+    .cw-list li { padding-left:1.6rem; position:relative; color:var(--dark-gray); }
+    .cw-list li::before { content:""; position:absolute; left:0; top:.55em; width:.7rem; height:.7rem; border-radius:50%; background:var(--cw-blue); }
+    .cw-price { display:inline-block; font-family:var(--font-heading); font-weight:700; color:var(--cw-blue); background:rgba(0,109,195,.1); border-radius:999px; padding:.15rem .7rem; margin-right:.4rem; }
+    .cw-ba { display:grid; grid-template-columns:1fr 1fr; gap:var(--space-xl); }
+    .cw-ba figure { margin:0; background:#14141a; border-radius:var(--radius-lg); padding:12px; box-shadow:0 20px 50px rgba(20,25,38,.25); }
+    .cw-ba img { width:100%; display:block; border-radius:calc(var(--radius-lg) - 6px); }
+    .cw-ba figcaption { color:#fff; text-align:center; padding:12px 8px 4px; font-size:.95rem; }
+    .cw-ba figcaption b { color:#8fc6ff; }
+    .cw-schools { display:flex; flex-wrap:wrap; justify-content:center; gap:var(--space-lg) var(--space-xl); align-items:center; margin-top:var(--space-lg); }
+    .cw-schools img { height:52px; width:auto; filter:drop-shadow(0 2px 4px rgba(0,0,0,.08)); transition:transform .15s; }
+    .cw-schools img:hover { transform:scale(1.08); }
+    .cw-more { text-align:center; color:var(--medium-gray); margin-top:var(--space-lg); font-size:.95rem; }
+    .cw-steps { display:grid; grid-template-columns:repeat(3,1fr); gap:var(--space-xl); counter-reset:step; }
+    .cw-step { background:#fff; border:1px solid var(--lighter-gray); border-radius:var(--radius-lg); padding:var(--space-xl); }
+    .cw-step::before { counter-increment:step; content:counter(step); display:inline-grid; place-items:center; width:40px; height:40px; border-radius:50%; background:var(--cw-blue); color:#fff; font-family:var(--font-heading); font-weight:700; margin-bottom:var(--space-md); }
+    .cw-step h3 { margin:0 0 .4rem; font-size:1.15rem; }
+    .cw-step p { margin:0; color:var(--medium-gray); }
+    .cw-faq { max-width:760px; margin:0 auto; }
+    .cw-faq details { border-bottom:1px solid var(--lighter-gray); padding:var(--space-md) 0; }
+    .cw-faq summary { cursor:pointer; font-weight:600; font-size:1.05rem; list-style:none; display:flex; justify-content:space-between; gap:1rem; }
+    .cw-faq summary::after { content:"+"; color:var(--cw-blue); font-weight:700; }
+    .cw-faq details[open] summary::after { content:"–"; }
+    .cw-faq p { margin:.6rem 0 0; color:var(--dark-gray); }
+    .cw-cta { background:var(--cw-navy); color:#fff; padding:var(--space-3xl) 0; text-align:center; }
+    .cw-cta h2 { color:#fff; margin-bottom:var(--space-sm); }
+    .cw-cta p { color:rgba(255,255,255,.75); margin-bottom:var(--space-xl); }
+    .cw-fine { font-size:.8rem; color:rgba(255,255,255,.5); margin-top:var(--space-xl); }
+    .cw-fine a { color:rgba(255,255,255,.7); }
+    .cw-partner { text-align:center; padding:var(--space-lg) 0; background:#fff; color:var(--medium-gray); font-size:.9rem; border-top:1px solid var(--lighter-gray); }
+    @media (max-width:900px){ .cw-hero .container, .cw-split, .cw-ba { grid-template-columns:1fr; } .cw-split.flip > :first-child { order:0; } .cw-steps { grid-template-columns:1fr; } .cw-watches img { width:34%; } }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="../index.html" class="logo">
+          <img src="../images/2thumbz-logo.png" alt="2ThumbZ Logo">
+        </a>
+        <nav class="nav">
+          <ul class="nav-links">
+            <li class="nav-dropdown">
+              <a href="../index.html#solutions" class="nav-link nav-dropdown-toggle">
+                Solutions
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                </svg>
+              </a>
+              <ul class="nav-dropdown-menu">
+                <li><a href="../index.html#license" class="nav-dropdown-link"><strong>License</strong> — Put our IP in your product</a></li>
+                <li><a href="../index.html#distribute" class="nav-dropdown-link"><strong>Distribute</strong> — Reach fans through our channels</a></li>
+                <li><a href="../index.html#build" class="nav-dropdown-link"><strong>Build</strong> — We build the product for you</a></li>
+              </ul>
+            </li>
+            <li><a href="catalog.html" class="nav-link">Content Library</a></li>
+            <li><a href="universities.html" class="nav-link">For Universities</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+          </ul>
+          <a href="contact.html" class="btn btn-primary">Contact Us</a>
+        </nav>
+        <button class="mobile-menu-toggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="cw-hero">
+    <div class="container">
+      <div>
+        <span class="hero-eyebrow">For Apple Watch · 27 schools</span>
+        <h1>Your school.<br>Your wrist.<br>Every Saturday.</h1>
+        <p class="lead">Officially licensed watch faces and 25 live complications — the score, the countdown to kickoff, your record, your rally cry — for the school you live and die with.</p>
+        <a class="cw-store" href="https://apps.apple.com/app/id6806597889" rel="noopener"> <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.7c-.02-2.2 1.8-3.26 1.88-3.31-1.03-1.5-2.62-1.71-3.18-1.73-1.35-.14-2.64.8-3.33.8-.69 0-1.75-.78-2.88-.76-1.48.02-2.85.86-3.61 2.19-1.54 2.67-.39 6.63 1.11 8.8.73 1.06 1.6 2.25 2.75 2.21 1.1-.05 1.52-.71 2.86-.71 1.33 0 1.71.71 2.88.69 1.19-.02 1.94-1.08 2.67-2.15.84-1.23 1.19-2.42 1.21-2.48-.03-.01-2.32-.89-2.36-3.55zM14.19 6.24c.61-.74 1.02-1.76.9-2.78-.88.04-1.94.58-2.57 1.32-.56.65-1.06 1.7-.93 2.7.98.08 1.98-.5 2.6-1.24z"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
+        <p class="cw-hero-note">Free to start · Requires iPhone and Apple Watch</p>
+      </div>
+      <div class="cw-watches" aria-label="CollegeWatch complications on Apple Watch faces">
+        <img src="../images/collegewatch/watch-modular-spread.png" alt="Duke Modular face with Spread, Live Stats, Record, Win Probability and Stadium Weather">
+        <img src="../images/collegewatch/watch-infograph-alabama.png" alt="Alabama Infograph face with rally cries in the corners and the mark in the dial">
+        <img src="../images/collegewatch/watch-modular-duke.png" alt="Duke Modular face with Kickoff Countdown and Live Stats">
+      </div>
+    </div>
+  </section>
+
+  <!-- Schools -->
+  <section class="cw-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Pick your school</span>
+        <h2 class="section-title">Everything follows your pick.</h2>
+        <p class="section-subtitle">Faces, marks, cheers, colors, schedule, stats — choose once and the whole watch turns. Switch any Saturday.</p>
+      </div>
+      <div class="cw-schools">
+        <img src="../images/logos/web/alabama.png" alt="Alabama" loading="lazy">
+        <img src="../images/logos/web/auburn.png" alt="Auburn" loading="lazy">
+        <img src="../images/logos/web/clemson.png" alt="Clemson" loading="lazy">
+        <img src="../images/logos/web/duke.png" alt="Duke" loading="lazy">
+        <img src="../images/logos/web/florida.png" alt="Florida" loading="lazy">
+        <img src="../images/logos/web/florida-state.png" alt="Florida State" loading="lazy">
+        <img src="../images/logos/web/georgia.png" alt="Georgia" loading="lazy">
+        <img src="../images/logos/web/lsu.png" alt="LSU" loading="lazy">
+        <img src="../images/logos/web/michigan.png" alt="Michigan" loading="lazy">
+        <img src="../images/logos/web/north-carolina.png" alt="North Carolina" loading="lazy">
+        <img src="../images/logos/web/notre-dame.png" alt="Notre Dame" loading="lazy">
+        <img src="../images/logos/web/ohio-state.png" alt="Ohio State" loading="lazy">
+        <img src="../images/logos/web/ole-miss.png" alt="Ole Miss" loading="lazy">
+        <img src="../images/logos/web/oregon.png" alt="Oregon" loading="lazy">
+        <img src="../images/logos/web/tennessee.png" alt="Tennessee" loading="lazy">
+        <img src="../images/logos/web/texas.png" alt="Texas" loading="lazy">
+        <img src="../images/logos/web/texas-am.png" alt="Texas A&amp;M" loading="lazy">
+        <img src="../images/logos/web/arkansas.png" alt="Arkansas" loading="lazy">
+      </div>
+      <p class="cw-more">Plus Arizona, Kentucky, Miami, Michigan State, NC State, South Carolina, UCLA, USC and Wisconsin — more schools through the season.</p>
+    </div>
+  </section>
+
+  <!-- Faces -->
+  <section class="cw-section cw-alt">
+    <div class="container cw-split">
+      <div>
+        <span class="section-eyebrow">Faces</span>
+        <h2>Licensed. Designed for the wrist.</h2>
+        <p>Real marks, real school colors, and designs built around Apple's clock — not a wallpaper with a logo slapped on. Save a face from the app and set it on your watch in seconds.</p>
+        <ul class="cw-list">
+          <li><span class="cw-price">Free</span> faces for every school — no purchase, no account</li>
+          <li><span class="cw-price">$1.99</span> premium faces, yours forever</li>
+          <li><span class="cw-price">$4.99</span> the whole pack for your school</li>
+        </ul>
+      </div>
+      <img class="cw-phone" src="../images/collegewatch/store-oregon.png" alt="The CollegeWatch store showing Oregon faces" loading="lazy">
+    </div>
+  </section>
+
+  <!-- Complications -->
+  <section class="cw-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">25 complications</span>
+        <h2 class="section-title">Keep the face you love. Make it your school's.</h2>
+        <p class="section-subtitle">CollegeWatch complications go into the slots on Apple's own faces — Modular, Infograph, Metropolitan, California and more. Same face, now yours.</p>
+      </div>
+      <div class="cw-ba">
+        <figure>
+          <img src="../images/collegewatch/modular_before_after.png" alt="Apple's Modular face before and after Duke complications" loading="lazy">
+          <figcaption><b>Modular</b> — Kickoff Countdown, Live Stats, Record, Win Probability, Stadium Weather</figcaption>
+        </figure>
+        <figure>
+          <img src="../images/collegewatch/infograph_before_after.png" alt="Apple's Infograph face before and after Alabama complications" loading="lazy">
+          <figcaption><b>Infograph</b> — Rally Cry in every corner, Team Mark, Spread, Ranking, Record</figcaption>
+        </figure>
+      </div>
+      <div class="cw-split" style="margin-top:var(--space-3xl)">
+        <img class="cw-phone" src="../images/collegewatch/complications-wisconsin.png" alt="The Complications tab in CollegeWatch, Wisconsin" loading="lazy">
+        <div>
+          <h3>Five families, one school</h3>
+          <ul class="cw-list">
+            <li><b>Brand</b> — Team Mark, Rally Cry, Wordmark, Mascot</li>
+            <li><b>Countdown</b> — Kickoff Countdown, Next Opponent, Gameday Card, Days Since</li>
+            <li><b>Stats</b> — Record, Ranking, Standing, Spread, SP+, Last Result, Matchup, Team Ticker</li>
+            <li><b>Gameday live</b> — Live Stats, Win Probability, Corner Win Gauge</li>
+            <li><b>Stadium</b> — Weather and UV at your home field</li>
+          </ul>
+          <p style="margin-top:var(--space-lg);color:var(--medium-gray)">One purchase unlocks a whole family for your school — complications are never sold one by one.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gameday -->
+  <section class="cw-section cw-alt">
+    <div class="container cw-split flip">
+      <div>
+        <span class="section-eyebrow">Gameday</span>
+        <h2>Live stats, the whole game.</h2>
+        <p>With a School Pass your face carries the game: score, quarter and clock, yards, who has the ball, turnovers — and a win probability that moves with every drive. Before kickoff it counts down. After the final, it shows the next one.</p>
+        <ul class="cw-list">
+          <li><span class="cw-price">$19.99 / year</span> School Pass — every complication for your school, live feed included</li>
+          <li>Refreshes on the face every few minutes; open the watch app for a real-time update</li>
+          <li>Follow two schools? A pass per school — the wrist shows whichever you pick</li>
+        </ul>
+      </div>
+      <div class="cw-watches" style="justify-content:center">
+        <img src="../images/collegewatch/watch-modular-duke.png" alt="Live Stats on a Duke Modular face" style="width:60%;max-width:300px;transform:none">
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="cw-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">How it works</span>
+        <h2 class="section-title">Set up in three steps.</h2>
+      </div>
+      <div class="cw-steps">
+        <div class="cw-step"><h3>Install on iPhone and watch</h3><p>Get CollegeWatch from the App Store, then add it to your watch from Apple's Watch app. The app walks you through it.</p></div>
+        <div class="cw-step"><h3>Pick your school</h3><p>The app sends your school to the watch. Faces, marks and stats all follow. Change it whenever you like.</p></div>
+        <div class="cw-step"><h3>Build your face</h3><p>Save a CollegeWatch face, or add complications to the Apple face you already wear — slot by slot, with a picture of each one.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="cw-section cw-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Questions</span>
+        <h2 class="section-title">The short answers.</h2>
+      </div>
+      <div class="cw-faq">
+        <details><summary>Do I need an Apple Watch?</summary><p>Yes — CollegeWatch is built for the wrist. The iPhone app is where you pick a school, browse faces and buy; the watch is where it all shows up. It needs watchOS 26 and iOS 26.</p></details>
+        <details><summary>Is it free?</summary><p>Every school has free faces and free complications (Kickoff Countdown, your mark). Premium faces are $1.99, a school's whole pack is $4.99, and a yearly School Pass ($19.99) unlocks every complication including the live gameday feed. No account, no sign-in — purchases follow your Apple Account.</p></details>
+        <details><summary>Are these official?</summary><p>Yes. Every mark, name and rally cry is used under license from the school. 2ThumbZ has shipped licensed collegiate watch faces since the first smartwatches.</p></details>
+        <details><summary>How live is "live"?</summary><p>During a game the face refreshes itself about every 5 to 8 minutes — a limit Apple puts on every watch face. Raise your wrist and open the CollegeWatch app on the watch for a real-time update.</p></details>
+        <details><summary>Can I follow more than one school?</summary><p>You can hold a School Pass for as many schools as you like; the watch shows one school at a time, and switching takes a tap on the phone.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cw-cta">
+    <div class="container">
+      <h2>Kickoff is Saturday.</h2>
+      <p>Put your school on your wrist before it is.</p>
+      <a class="cw-store" href="https://apps.apple.com/app/id6806597889" rel="noopener"> <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.7c-.02-2.2 1.8-3.26 1.88-3.31-1.03-1.5-2.62-1.71-3.18-1.73-1.35-.14-2.64.8-3.33.8-.69 0-1.75-.78-2.88-.76-1.48.02-2.85.86-3.61 2.19-1.54 2.67-.39 6.63 1.11 8.8.73 1.06 1.6 2.25 2.75 2.21 1.1-.05 1.52-.71 2.86-.71 1.33 0 1.71.71 2.88.69 1.19-.02 1.94-1.08 2.67-2.15.84-1.23 1.19-2.42 1.21-2.48-.03-.01-2.32-.89-2.36-3.55zM14.19 6.24c.61-.74 1.02-1.76.9-2.78-.88.04-1.94.58-2.57 1.32-.56.65-1.06 1.7-.93 2.7.98.08 1.98-.5 2.6-1.24z"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
+      <p class="cw-fine">School Pass subscriptions renew yearly unless cancelled at least 24 hours before the end of the period; manage in your Apple Account settings. <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms</a> · <a href="https://cdn.collegewatch.app/privacy.html">Privacy</a> · <a href="https://cdn.collegewatch.app/support.html">Help &amp; Support</a></p>
+    </div>
+  </section>
+  <div class="cw-partner">A 2ThumbZ product. Building something with collegiate IP? <a href="collegewatch.html">See how CollegeWatch was built</a> · <a href="contact.html">Talk to us</a></div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="../images/2thumbz-logo.png" alt="2ThumbZ" class="footer-logo">
+          <p>The collegiate IP partner for business. License our content, distribute through our channels, or have us build the product for you.</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-title">Solutions</h4>
+          <ul class="footer-links">
+            <li><a href="../index.html#license">License Our IP</a></li>
+            <li><a href="../index.html#distribute">Distribute Through Us</a></li>
+            <li><a href="../index.html#build">Build With Us</a></li>
+            <li><a href="universities.html">For Universities</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-title">Recent Launches</h4>
+          <ul class="footer-links">
+            <li><a href="collegewatch.html">CollegeWatch</a></li>
+            <li><a href="meta-avatars.html">Collegiate Apparel · Meta</a></li>
+            <li><a href="nba-2k.html">Fight Songs · NBA 2K27</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">&copy; 2026 2ThumbZ. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js?v=20260910134808"></script>
+</body>
+</html>
