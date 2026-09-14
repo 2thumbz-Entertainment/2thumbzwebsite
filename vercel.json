@@ -54,7 +54,7 @@
   "rewrites": [
     {
       "source": "/collegewatch",
-      "destination": "/pages/collegewatch-app.html"
+      "destination": "/pages/collegewatch-app"
     }
   ]
 }
