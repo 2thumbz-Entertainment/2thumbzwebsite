@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/styles.css?v=20260910134808">
+  <link rel="stylesheet" href="../css/styles.css?v=20260925220402">
   <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
   <meta property="og:title" content="CollegeWatch — Your school on your Apple Watch">
   <meta property="og:description" content="Officially licensed faces and 25 live complications for 27 schools. Free to start.">
@@ -55,6 +55,13 @@
     .cw-step::before { counter-increment:step; content:counter(step); display:inline-grid; place-items:center; width:40px; height:40px; border-radius:50%; background:var(--cw-blue); color:#fff; font-family:var(--font-heading); font-weight:700; margin-bottom:var(--space-md); }
     .cw-step h3 { margin:0 0 .4rem; font-size:1.15rem; }
     .cw-step p { margin:0; color:var(--medium-gray); }
+    /* Video grid — portrait clips, nothing downloads until played (preload=none) */
+    .cw-videos { display:grid; grid-template-columns:repeat(4,1fr); gap:var(--space-lg); }
+    .cw-video { margin:0; }
+    .cw-video video { width:100%; aspect-ratio:9/16; object-fit:cover; display:block; background:var(--cw-navy); border-radius:var(--radius-lg); box-shadow:var(--shadow-md); }
+    .cw-video figcaption { margin-top:var(--space-md); text-align:center; }
+    .cw-video figcaption strong { display:block; font-family:var(--font-heading); font-size:1rem; color:var(--dark-gray); }
+    .cw-video figcaption span { display:block; font-size:.875rem; color:var(--medium-gray); margin-top:2px; }
     .cw-faq { max-width:760px; margin:0 auto; }
     .cw-faq details { border-bottom:1px solid var(--lighter-gray); padding:var(--space-md) 0; }
     .cw-faq summary { cursor:pointer; font-weight:600; font-size:1.05rem; list-style:none; display:flex; justify-content:space-between; gap:1rem; }
@@ -67,7 +74,8 @@
     .cw-fine { font-size:.8rem; color:rgba(255,255,255,.5); margin-top:var(--space-xl); }
     .cw-fine a { color:rgba(255,255,255,.7); }
     .cw-partner { text-align:center; padding:var(--space-lg) 0; background:#fff; color:var(--medium-gray); font-size:.9rem; border-top:1px solid var(--lighter-gray); }
-    @media (max-width:900px){ .cw-hero .container, .cw-split, .cw-ba { grid-template-columns:1fr; } .cw-split.flip > :first-child { order:0; } .cw-steps { grid-template-columns:1fr; } .cw-watches img { width:34%; } }
+    @media (max-width:900px){ .cw-hero .container, .cw-split, .cw-ba { grid-template-columns:1fr; } .cw-split.flip > :first-child { order:0; } .cw-steps { grid-template-columns:1fr; } .cw-watches img { width:34%; } .cw-videos { grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:560px){ .cw-videos { grid-template-columns:1fr; max-width:320px; margin:0 auto; } }
   </style>
 </head>
 <body>
@@ -242,8 +250,57 @@
     </div>
   </section>
 
+  <!-- Videos -->
+  <section class="cw-section cw-alt" id="videos">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">See it</span>
+        <h2 class="section-title">Watch it work.</h2>
+        <p class="section-subtitle">Short clips, straight from the app. Sound on.</p>
+      </div>
+
+      <div class="cw-videos">
+        <figure class="cw-video">
+          <video controls preload="none" playsinline
+                 poster="../images/collegewatch/cw-get-started-poster.jpg">
+            <source src="../video/cw-get-started.mp4" type="video/mp4">
+            Your browser can't play this video.
+          </video>
+          <figcaption><strong>Get started</strong><span>Install, pick your school, done.</span></figcaption>
+        </figure>
+
+        <figure class="cw-video">
+          <video controls preload="none" playsinline
+                 poster="../images/collegewatch/cw-put-a-face-poster.jpg">
+            <source src="../video/cw-put-a-face.mp4" type="video/mp4">
+            Your browser can't play this video.
+          </video>
+          <figcaption><strong>Put a face on your watch</strong><span>Free faces for every school.</span></figcaption>
+        </figure>
+
+        <figure class="cw-video">
+          <video controls preload="none" playsinline
+                 poster="../images/collegewatch/cw-buy-subscribe-poster.jpg">
+            <source src="../video/cw-buy-subscribe.mp4" type="video/mp4">
+            Your browser can't play this video.
+          </video>
+          <figcaption><strong>Buy, Buy All, Subscribe</strong><span>What each one gets you.</span></figcaption>
+        </figure>
+
+        <figure class="cw-video">
+          <video controls preload="none" playsinline
+                 poster="../images/collegewatch/cw-app-preview-poster.jpg">
+            <source src="../video/cw-app-preview.mp4" type="video/mp4">
+            Your browser can't play this video.
+          </video>
+          <figcaption><strong>App preview</strong><span>The whole thing in 23 seconds.</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <!-- FAQ -->
-  <section class="cw-section cw-alt">
+  <section class="cw-section">
     <div class="container">
       <div class="section-header">
         <span class="section-eyebrow">Questions</span>
@@ -309,6 +366,6 @@
     </div>
   </footer>
 
-  <script src="../js/main.js?v=20260910134808"></script>
+  <script src="../js/main.js?v=20260925220402"></script>
 </body>
 </html>
