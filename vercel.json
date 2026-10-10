@@ -55,6 +55,14 @@
     {
       "source": "/collegewatch",
       "destination": "/pages/collegewatch-app"
+    },
+    {
+      "source": "/college-central/privacy",
+      "destination": "/pages/college-central-privacy"
+    },
+    {
+      "source": "/college-central/support",
+      "destination": "/pages/college-central-support"
     }
   ]
 }
