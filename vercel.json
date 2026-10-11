@@ -63,6 +63,10 @@
     {
       "source": "/college-central/support",
       "destination": "/pages/college-central-support"
+    },
+    {
+      "source": "/college-central/delete-data",
+      "destination": "/pages/college-central-delete-data"
     }
   ]
 }
