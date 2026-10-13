@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>College Central Live Themes — Live wallpapers, keyboards and stickers for 15 schools</title>
+  <meta name="description" content="Officially licensed live wallpapers, custom keyboards and animated stickers for Alabama, Auburn, Clemson, Duke, Florida, Florida State, Georgia, LSU, Michigan, Michigan State, Notre Dame, Ohio State, Oregon, Texas and UNC. Free to start." />
+  <meta name="robots" content="index,follow" />
+  <!-- Safari on iPhone shows its Smart App Banner, linking to the App Store listing. -->
+  <meta name="apple-itunes-app" content="app-id=1514303131" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="College Central Live Themes" />
+  <meta property="og:description" content="Rep your school on your phone: live wallpapers, keyboards and stickers for 15 schools." />
+  <meta property="og:url" content="https://2thumbz.com/college-central" />
+  <meta property="og:image" content="https://2thumbz.com/images/college-central/cc-preview-poster.jpg" />
+  <link rel="icon" href="../images/college-central/app-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    /* The app's own tokens (src/ui/tokens.ts). */
+    :root {
+      --bg: #0B0B0C;
+      --surface: #18181B;
+      --line: #2A2A2E;
+      --gold: #F2B705;
+      --ink: #F5F1E6;
+      --muted: #B3ADA2;
+      --max: 1080px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); }
+    body {
+      font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.6;
+      -webkit-text-size-adjust: 100%;
+    }
+    a { color: var(--gold); }
+    img, video { display: block; max-width: 100%; }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+    h1, h2, .eyebrow { font-family: "Barlow Condensed", "DM Sans", sans-serif; font-weight: 600; text-transform: uppercase; }
+    h1 { font-size: clamp(44px, 7vw, 72px); line-height: 0.98; letter-spacing: 0.01em; margin: 18px 0 16px; }
+    h2 { font-size: clamp(32px, 4.5vw, 44px); line-height: 1.05; letter-spacing: 0.01em; margin: 0 0 12px; }
+    .eyebrow { color: var(--gold); font-size: 18px; letter-spacing: 0.12em; }
+
+    nav.app { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 20px; padding: 20px 0; font-size: 15px; }
+    nav.app .brand { display: flex; align-items: center; gap: 10px; margin-right: auto; color: var(--ink); text-decoration: none; font-weight: 700; }
+    nav.app .brand img { width: 32px; height: 32px; border-radius: 8px; }
+    nav.app a:not(.brand) { color: var(--muted); text-decoration: none; }
+    nav.app a:not(.brand):hover { color: var(--ink); }
+
+    .hero { display: grid; gap: 40px; align-items: center; padding: 24px 0 64px; }
+    .hero .icon { width: 88px; height: 88px; border-radius: 20px; }
+    .lead { color: var(--muted); font-size: 19px; max-width: 34em; margin: 0 0 28px; }
+    .note { color: var(--muted); font-size: 14px; margin: 14px 0 0; }
+    .preview { justify-self: center; width: 100%; max-width: 340px; }
+    .preview video { width: 100%; aspect-ratio: 640 / 1386; border-radius: 28px; background: #000; border: 1px solid var(--line); }
+
+    /* Store badges: official artwork, unmodified, all at the same height, App Store first. */
+    .stores { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-start; }
+    .stores a, .stores .soon { display: inline-flex; flex-direction: column; align-items: center; gap: 6px; text-decoration: none; }
+    .stores img { height: 52px; width: auto; }
+    .stores .soon img { opacity: 0.45; }
+    .stores .soon small { color: var(--muted); font-size: 12px; letter-spacing: 0.04em; }
+    .stores.center { justify-content: center; }
+
+    .features { display: grid; gap: 56px; padding: 24px 0 72px; }
+    .feature { display: grid; gap: 28px; align-items: center; }
+    .feature img { width: 100%; max-width: 270px; height: auto; justify-self: center; border-radius: 26px; border: 1px solid var(--line); }
+    .feature p { color: var(--muted); margin: 0; max-width: 32em; }
+
+    .schools { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 56px 0; text-align: center; }
+    .schools ul { list-style: none; padding: 0; margin: 20px auto 0; max-width: 760px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+    .schools li { border: 1px solid var(--line); background: var(--bg); border-radius: 999px; padding: 6px 16px; font-size: 15px; }
+
+    .premium { padding: 64px 0; display: grid; gap: 24px; }
+    .premium .cards { display: grid; gap: 16px; }
+    .premium .card { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 22px 24px; }
+    .premium .card h3 { margin: 0 0 6px; font-size: 18px; }
+    .premium .card p { margin: 0; color: var(--muted); font-size: 16px; }
+
+    .cta { text-align: center; padding: 56px 0 72px; border-top: 1px solid var(--line); }
+    .cta p { color: var(--muted); margin: 0 0 24px; }
+    .cta .search { margin: 20px 0 0; font-size: 15px; }
+
+    footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 14px; }
+    footer a { color: var(--muted); }
+
+    @media (min-width: 860px) {
+      .hero { grid-template-columns: 1.15fr 0.85fr; padding: 40px 0 88px; }
+      .preview { justify-self: end; }
+      .feature { grid-template-columns: 1fr 1fr; gap: 56px; }
+      .feature:nth-child(even) img { order: 2; }
+      .premium { grid-template-columns: 0.9fr 1.1fr; align-items: start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="app" aria-label="College Central">
+      <a class="brand" href="/college-central" aria-current="page">
+        <img src="../images/college-central/app-icon.png" alt="" width="32" height="32" />
+        College Central Live Themes
+      </a>
+      <a href="/college-central/support">Help &amp; Support</a>
+      <a href="/college-central/privacy">Privacy</a>
+    </nav>
+
+    <section class="hero">
+      <div>
+        <img class="icon" src="../images/college-central/app-icon.png" alt="College Central Live Themes app icon" width="88" height="88" />
+        <h1>Rep your school<br />on your phone</h1>
+        <p class="lead">Officially licensed live wallpapers, custom keyboards and animated stickers for 15 schools. Pick yours once and everything in the app is made for it.</p>
+        <!--
+          Store links. Google Play and Galaxy Store show "Coming soon" until those listings are
+          published; then make each an <a> like the App Store one:
+            https://play.google.com/store/apps/details?id=com.twothumbz.collegecentral
+            https://galaxystore.samsung.com/detail/com.twothumbz.collegecentral
+        -->
+        <div class="stores">
+          <a href="https://apps.apple.com/app/id1514303131" rel="noopener">
+            <img src="../images/badges/app-store.svg" alt="Download on the App Store" width="156" height="52" />
+          </a>
+          <span class="soon">
+            <img src="../images/badges/google-play.png" alt="Get it on Google Play (coming soon)" width="175" height="52" />
+            <small>Coming soon</small>
+          </span>
+          <span class="soon">
+            <img src="../images/badges/galaxy-store.png" alt="Available on Galaxy Store (coming soon)" width="192" height="52" />
+            <small>Coming soon</small>
+          </span>
+        </div>
+        <p class="note">Free to start · No ads · No account</p>
+      </div>
+      <div class="preview">
+        <video controls playsinline muted preload="none"
+               poster="../images/college-central/cc-preview-poster.jpg"
+               aria-label="Video: College Central live wallpapers, keyboards and stickers">
+          <source src="../video/college-central-preview.mp4" type="video/mp4" />
+          Your browser can't play this video.
+        </video>
+      </div>
+    </section>
+
+    <section class="features" aria-label="What's in the app">
+      <div class="feature">
+        <img src="../images/college-central/cc-shot-wallpaper.jpg" alt="The Fireworks live wallpaper for Alabama, previewed on a Lock Screen" width="540" height="1173" loading="lazy" />
+        <div>
+          <span class="eyebrow">Live wallpapers</span>
+          <h2>Your school, moving on your Lock Screen</h2>
+          <p>Spinning logos, shimmering helmets and game-day scenes that play every time you wake your phone. Save one as a Live Photo and set it in a few taps; the app walks you through every step.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <img src="../images/college-central/cc-shot-keyboard.jpg" alt="Typing Roll Tide on the Big Al Crimson keyboard" width="540" height="1173" loading="lazy" />
+        <div>
+          <span class="eyebrow">Keyboards</span>
+          <h2>Type in your school's colors</h2>
+          <p>Themed keyboard skins for everything you type. The keyboard works without "Allow Full Access", so what you type never leaves your phone.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <img src="../images/college-central/cc-shot-stickers.jpg" alt="Fifteen Alabama stickers in the College Central panel in Messages" width="540" height="1173" loading="lazy" />
+        <div>
+          <span class="eyebrow">Stickers</span>
+          <h2>15 per school, right in Messages</h2>
+          <p>Touchdowns, slam dunks, the Class of 2026 and more, many of them animated. On iPhone they live in Messages; on Android, on your College Central keyboard.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="schools" aria-labelledby="schools-heading">
+    <div class="container">
+      <span class="eyebrow">15 schools</span>
+      <h2 id="schools-heading">Pick yours</h2>
+      <ul>
+        <li>Alabama</li><li>Auburn</li><li>Clemson</li><li>Duke</li><li>Florida</li>
+        <li>Florida State</li><li>Georgia</li><li>LSU</li><li>Michigan</li><li>Michigan State</li>
+        <li>Notre Dame</li><li>Ohio State</li><li>Oregon</li><li>Texas</li><li>UNC</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="container">
+    <section class="premium" aria-labelledby="premium-heading">
+      <div>
+        <span class="eyebrow">Free to start</span>
+        <h2 id="premium-heading">Free, or go Premium</h2>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <h3>Free</h3>
+          <p>Every school includes a free live wallpaper, a free keyboard and four free stickers. No ads, no account.</p>
+        </div>
+        <div class="card">
+          <h3>Premium</h3>
+          <p>Every wallpaper, keyboard and sticker, for every school, with new designs added without an app update. Monthly or yearly; the price for your country shows in the app before you buy.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h2>Get College Central</h2>
+      <p>Live wallpapers, keyboards and stickers for your school.</p>
+      <div class="stores center">
+        <a href="https://apps.apple.com/app/id1514303131" rel="noopener">
+          <img src="../images/badges/app-store.svg" alt="Download on the App Store" width="156" height="52" />
+        </a>
+        <span class="soon">
+          <img src="../images/badges/google-play.png" alt="Get it on Google Play (coming soon)" width="175" height="52" />
+          <small>Coming soon</small>
+        </span>
+        <span class="soon">
+          <img src="../images/badges/galaxy-store.png" alt="Available on Galaxy Store (coming soon)" width="192" height="52" />
+          <small>Coming soon</small>
+        </span>
+      </div>
+      <p class="search">Or search "College Central Live Themes" in your app store.</p>
+    </section>
+
+    <footer>
+      &copy; 2026 2ThumbZ, Inc. All rights reserved. &middot;
+      <a href="/college-central/support">Help &amp; Support</a> &middot;
+      <a href="/college-central/privacy">Privacy</a> &middot;
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use (Apple)</a><br />
+      College and university names, logos and marks are trademarks of their owners and are used under license.
+      Apple and the Apple logo are trademarks of Apple Inc. Google Play and the Google Play logo are trademarks of Google LLC.
+      Galaxy Store is a trademark of Samsung Electronics Co., Ltd.
+    </footer>
+  </div>
+</body>
+</html>
